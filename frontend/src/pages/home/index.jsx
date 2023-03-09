@@ -3,13 +3,9 @@ import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
 import ListItemText from '@mui/material/ListItemText'
 import AssistantDirectionSharpIcon from '@mui/icons-material/AssistantDirectionSharp'
-import CommentIcon from '@mui/icons-material/Comment'
 import IconButton from '@mui/material/IconButton';
 
 import { UserCard } from '../../components/UserCard'
-
-import { repositories } from '../../../mok.js'
-import { user as mokUser } from '../../../mok.js'
 
 import classes from '../../styles/Home.module.css'
 
@@ -17,7 +13,6 @@ export function Home() {
     const [inputValue, setInputCValue] = useState('')
     const [user, setUser] = useState(null)
     const [repos, setRepos] = useState(null)
-    const [repositorieList, setRepositorieList] = useState([])
 
     const formHandler = () => {
         if(!inputValue){
@@ -41,7 +36,6 @@ export function Home() {
     }
 
     const showRepositoriesButtonHandler = async () => {
-        setRepos(repositories)
         await fetch(`http://localhost:8080/user/repos/${user.login}`)
          .then(response => response.json())
          .then(data => setRepos(data))
@@ -90,24 +84,33 @@ export function Home() {
                 }
                 {
                     repos?
-                        <List sx={{ 
+                        <List 
+                            sx={{ 
                             width: '50rem', 
                             bgcolor: '#212529',
                             color: '#fff', 
                             marginTop: '2rem', 
-                            height: '30rem' }}>
+                            height: '30rem',
+                            position: 'relative',
+                            overflow: 'auto', 
+                        }}
+
+                        >
                                 {repos.map((value) => (
                                     <ListItem
                                     key={value}
                                     disableGutters
                                     secondaryAction={
-                                        <IconButton onClick={() => handlerIconClick(value.html_url)}>
-                                            <AssistantDirectionSharpIcon color='white' />
+                                        <IconButton 
+                                        onClick={() => handlerIconClick(value.html_url)}>
+                                            <AssistantDirectionSharpIcon sx={{
+                                                color: '#fff'
+                                            }} />
                                         </IconButton>
                                     }
                                     >
                                         <ListItemText primary={`${value.name}`} style={{paddingLeft: '1rem'}} />
-                                        <ListItemText primary={`Estrelas ⭐️: ${value.stargazers_count}`} />
+                                        <ListItemText primary={`⭐️: ${value.stargazers_count}`} />
                                     </ListItem>
                                 ))}
                         </List>
