@@ -37,8 +37,8 @@ export function Home() {
 
     const showRepositoriesButtonHandler = async () => {
         await fetch(`http://localhost:8080/user/repos/${user.login}`)
-         .then(response => response.json())
-         .then(data => setRepos(data))
+            .then(response => response.json())
+            .then(data => setRepos(data))
     }
 
     const handlerIconClick = (link) => {
@@ -114,7 +114,7 @@ export function Home() {
                                     </ListItem>
                                 ))}
                         </List>
-                    :null
+                    :<h1>Nenhum repositório encontrado</h1>
                 }
 
                 </div>
