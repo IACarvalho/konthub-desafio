@@ -1,0 +1,23 @@
+.button {
+    min-width: 5rem;
+    height: 3.5rem;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border: 2px solid #212529;
+    background: #212529;
+  }
+  .button:hover {
+    background: #fff;
+    color: #212529
+  }
+
+  a {
+    text-decoration: none;
+    text-align: center;
+  }

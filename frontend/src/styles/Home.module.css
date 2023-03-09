@@ -1,0 +1,44 @@
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #e6e6e6;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    height: 100vh;
+}
+
+.input{
+    height: 3.5rem;
+    width: 15rem;
+    font-size: 1.08rem;
+    border: none;
+    background-color: #FFF;
+}
+
+.validator {
+    color: red;
+    font-size: 0.8rem;
+    margin-top: 10px;
+    display: none;
+}
+
+.repository {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    margin: 2rem 0;
+    width: 50rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    background-color: #212529;
+    color: #fff;
+}
+
+.repoTitle {
+    font-size: 1.7rem;
+}
