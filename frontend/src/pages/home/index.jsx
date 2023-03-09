@@ -86,7 +86,7 @@ export function Home() {
                     repos?
                         <List 
                             sx={{ 
-                            width: '50rem', 
+                            width: '30rem', 
                             bgcolor: '#212529',
                             color: '#fff', 
                             marginTop: '2rem', 
